@@ -9,32 +9,61 @@ const ask = [
         choices: [
             {
                 value: '1',
-                name: `${'1.'.bgRed} Crear una tarea`
+                name: `${'1.'.red} Crear una tarea`
             },
             {
                 value: '2',
-                name: `${'2.'.bgRed} Listar tareas`
+                name: `${'2.'.red} Listar tareas`
             },
             {
                 value: '3',
-                name: `${'3.'.bgRed} Listar tareas completadas`
+                name: `${'3.'.red} Listar tareas completadas`
             },
             {
                 value: '4',
-                name: `${'4.'.bgRed} Listar tareas pendientes`   
+                name: `${'4.'.red} Listar tareas pendientes`   
             },
             {
                 value: '5',
-                name: `${'5.'.bgRed} Completar tarea(s)`
+                name: `${'5.'.red} Completar tarea(s)`
             },
             {
                 value: '6',
-                name: `${'7.'.bgRed} Borrar tarea`
+                name: `${'6.'.red} Borrar tarea`
             },
             {
                 value: '0',
-                name: `${'0.'.bgRed} Salir`
+                name: `${'0.'.red} Salir`
             },
         ]
     }
-]
+];
+
+
+const inquirerMenu= async() => {
+    console.clear();
+    console.log('~~~~~~~~~~~~~~~~~~~~~~'.brightRed);
+    console.log(' Selecione una opcion'.blue);
+    console.log('~~~~~~~~~~~~~~~~~~~~~~\n'.brightRed);
+
+    const {option}= await inquirer.prompt(ask);
+
+    return option;
+}
+
+const pause= async() =>{
+    const question= [
+        {
+            type: 'input',
+            name: 'enter',
+            message:`Precione ${'Enter'.bgGreen} para continuar`
+        }
+    ];
+    console.log('\n');
+    await inquirer.prompt(question);
+}
+
+module.exports= {
+     inquirerMenu,
+     pause,
+}

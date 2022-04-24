@@ -23,7 +23,15 @@ const main = async() => {
         break;
 
         case '2':
-          console.log(tasks.listArr)
+          tasks.fullList();
+        break;
+
+        case '3':
+          tasks.listCompletedPending(true);
+        break;
+        
+        case '4':
+          tasks.listCompletedPending(false);
         break;
       }
       saveDB(tasks.listArr);

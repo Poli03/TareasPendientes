@@ -52,7 +52,7 @@ class Tasks{
         if(completed){
             if(completedin){
                 contador += 1;
-                console.log(`${(contador+ '.').yellow} ${desc} :: ${completedin}`);
+                console.log(`${(contador+ '.').yellow} ${desc} :: ${completedin.green}`);
             }
         }
         else{
@@ -68,6 +68,21 @@ class Tasks{
         if(this._list[id])
         delete this._list[id];
     }
+
+    toggleCompleted( ids = []){
+        ids.forEach( id =>{
+            const task = this._list[id];
+            if( !task.completedin){
+                task.completedin = new Date().toISOString();
+            }
+        });
+
+        this.listArr.forEach( task => {
+            if(!ids.includes(task.id))
+              this._list[task.id].completedin= null;
+        });
+    }
+
 }
 
 module.exports= Tasks;

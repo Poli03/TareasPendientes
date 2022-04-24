@@ -3,6 +3,10 @@ const Task = require("./task");
 
 class Tasks{
     _listado={};
+
+    constructor(){
+        this._listado={};
+    }
      
     get listArr(){
         const list =[];
@@ -11,10 +15,6 @@ class Tasks{
             list.push(task);
         });
         return list;
-    }
-
-    constructor(){
-        this._listado={};
     }
 
     createtask( desc = ''){

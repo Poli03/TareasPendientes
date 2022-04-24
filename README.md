@@ -1,6 +1,7 @@
-> # Taeas
+> # Tareas
 
 Ejecutar con:
-~~~
+
+```
 node app
-~~~
+```
